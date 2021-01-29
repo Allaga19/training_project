@@ -2,9 +2,9 @@
 // alert('hellow!');
 let money = 5;
 let income = 10;
-let deposit = 4;
-let mission = 'Цель';
-let period = 'Период';
+let deposit = 'депозит';
+let mission = 'цель';
+let period = 'период';
 
 const addExpenses = 'Добавить расходы';
 
