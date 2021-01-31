@@ -1,0 +1,28 @@
+body {
+   padding-left: 100px;
+   padding-right: 100px;
+   background: #f5e8f5;
+}
+.nav {
+   background: #af36ce;
+   width: 100%;
+}
+ul {
+   padding: 0;
+   margin: 0;
+}
+li {
+   list-style: none;
+   padding: 10px 10px 10px 0;
+}
+li a {
+   font-size: 18px;
+   line-height: 20px;
+   color: #fff;
+   text-decoration: none;
+   padding: 10px;
+}
+li a:hover {
+   color: #af36ce;
+   background: #fff;
+}
