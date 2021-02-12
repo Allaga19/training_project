@@ -6,7 +6,8 @@
 Кнопки “+” (плюс) через Tag, каждую в своей переменной. 
 Чекбокс по id через querySelector
 Поля для ввода возможных доходов (additional_income-item) при помощи querySelectorAll
-Каждый элемент в правой части программы через класс(не через querySelector), которые имеют в имени класса "-value", начиная с class="budget_day-value" и заканчивая class="target_month-value">
+Каждый элемент в правой части программы через класс(не через querySelector), 
+которые имеют в имени класса "-value", начиная с class="budget_day-value" и заканчивая class="target_month-value">
 Оставшиеся поля через querySelector каждый в отдельную переменную:
 поля ввода (input) с левой стороны и не забудьте про range.
 */
