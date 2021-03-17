@@ -307,35 +307,6 @@ window.addEventListener('DOMContentLoaded', () => {
 		});
 	};
 	calcBlockInputs();
-	// ---------- Форма заявки в футере ------
-	// const form = document.querySelector('.footer-form');
-	// // Валидация данных при вводе телефона
-	// form.addEventListener('input', event => {
-	// 	if (event.target.matches('input[name="user_phone"]')) {
-	// 		// event.target.value = event.target.value.replace(/\+?[78]([-()]*\d){10}/g, '');
-	// 		event.target.value = event.target.value.replace(/[^+\d]/g, '');
-	// 	}
-	// });
-	// // Валидация данных при вводе email
-	// form.addEventListener('input', event => {
-	// 	if (event.target.matches('input[name="user_email"]')) {
-	// 		// event.target.value = event.target.value.replace(/^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/gi, '');
-	// 		event.target.value = event.target.value.replace(/[^A-Za-z.\d\-@_]/g, '');
-	// 	}
-	// });
-	// // Валидация данных при вводе имени
-	// form.addEventListener('input', event => {
-	// 	if (event.target.matches('input[name="user_name"]')) {
-	// 		event.target.value = event.target.value.replace(/[^а-яё\s-]/i, '');
-	// 		// event.target.value = event.target.value.replace(/[^А-Яа-яЁё]|/g, '');
-	// 	}
-	// });
-	// //Валидация данных при вводе сообщения
-	// form.addEventListener('input', event => {
-	// 	if (event.target.matches('input[name="user_message"]')) {
-	// 		event.target.value = event.target.value.replace(/[^А-Яа-яЁё,.]/gi, '');
-	// 	}
-	// });
 	// --------------- Калькулятор ------------
 	// в скобках по умолчанию можно дописать, папример, 100 денежных единиц
 	const calc = (price = 100) => {
@@ -429,7 +400,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			});
 			// настраиваем соединение, для этого обращаемся к методу open('')
 			// и настраиваем его, первое что настроим это метод отправки POST на сервер ( файл server.php)
-			request.open('POST', './server.php');
+			request.open('POST', 'server.php');
 			// настройка заголовка
 			request.setRequestHeader('Content-Type', 'application/json'); //multipart/form-data
 			// открываем соединение и отправляем данные с помощью метода send('')
