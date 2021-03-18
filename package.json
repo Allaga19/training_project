@@ -1,0 +1,29 @@
+{
+  "name": "training_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.prod.config.js",
+    "dev": "webpack serve --config webpack.dev.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Allaga19/training_project.git"
+  },
+  "keywords": [],
+  "author": "Алла Гаврюшина",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Allaga19/training_project/issues"
+  },
+  "homepage": "https://github.com/Allaga19/training_project#readme",
+  "devDependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.26.3",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}
