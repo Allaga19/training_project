@@ -15,26 +15,20 @@ const countTimer = deadline => {
 	};
 	// подставляем 0 перед значениями
 	const structureTime = data => {
-		if (String(data).length === 1) {
-			return '0' + data;
-		} else {
-			return String(data);
+		if (data < 10) {
+			data = '0' + data;
 		}
+		return data;
 	};
-	const updateClock = setInterval(() => {
+	const updateClock = () => {
 		const timer = getTimeRemaning();
-		// вывод значений на страницу
 		timerHours.textContent = structureTime(timer.hours);
 		timerMinutes.textContent = structureTime(timer.minutes);
 		timerSeconds.textContent = structureTime(timer.seconds);
-		// вызов каждую секунду
-		if (timer.timeRemaining < 0) {
-			clearInterval(updateClock);
-			const dateStop = new Date(deadline);
-			dateStop.setDate(dateStop.getDate() + 1);
-			countTimer(dateStop);
+		if (timer.timeRemaining > 0) {
+			setTimeout(updateClock, 1000);
 		}
-	}, 1000);
-	// setInterval(updateClock, 1000);
+	};
+	updateClock();
 };
 export default countTimer;

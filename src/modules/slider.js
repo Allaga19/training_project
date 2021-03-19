@@ -2,16 +2,16 @@
 const slider = () => {
 	const slide = document.querySelectorAll('.portfolio-item'),
 		dots = document.querySelector('.portfolio-dots'),
-		// dot = document.querySelectorAll('.dot'),
 		slider = document.querySelector('.portfolio-content');
 	let currentSlide = 0; // определяет немер слайда, первый слайд нулевой
 	let interval;
+
 	// добавляем клас для точек
 	slide.forEach(index => {
 		const li = document.createElement('li');
 		if (index === 0) {
-			li.classList.add('dot');
 			li.classList.add('dot-active');
+			li.classList.add('dot');
 		} else {
 			li.classList.add('dot');
 		}

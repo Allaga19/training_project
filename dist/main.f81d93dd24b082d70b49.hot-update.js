@@ -1,0 +1,32 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdatetraining_project"]("main",{
+
+/***/ "./src/modules/slider.js":
+/*!*******************************!*\
+  !*** ./src/modules/slider.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n// Создаём функцию\nvar slider = function slider() {\n  var slide = document.querySelectorAll('.portfolio-item'),\n      dots = document.querySelector('.portfolio-dots'),\n      // dot = document.querySelectorAll('.dot'),\n  slider = document.querySelector('.portfolio-content');\n  var currentSlide = 0; // определяет немер слайда, первый слайд нулевой\n\n  var interval; // добавляем клас для точек\n\n  slide.forEach(function (index) {\n    var li = document.createElement('li');\n\n    if (index === 0) {\n      li.classList.add('dot-active');\n      li.classList.add('dot');\n    } else {\n      li.classList.add('dot');\n    }\n\n    dots.append(li);\n  });\n  var dot = document.querySelectorAll('.dot'); // функция принимает элемен у которого надо удалить класс\n  // дальше она принимает индекс (currentSlide) и клас, который хотим добавить или удалить\n\n  var prevSlide = function prevSlide(elem, index, strClass) {\n    // у текущего слайда (elem) с индексом currentSlide (index) убираем класс active\n    // а слудующему слайду добавлять класс activ это strClass(portfolio-item-active)\n    elem[index].classList.remove(strClass);\n  };\n\n  var nextSlide = function nextSlide(elem, index, strClass) {\n    // и у следующего слайда будем добавлять strClass (portfolio-item-active)\n    elem[index].classList.add(strClass);\n  }; //  функция перелистования\n\n\n  var autoPlaySlide = function autoPlaySlide() {\n    // вызов (стрелки)\n    prevSlide(slide, currentSlide, 'portfolio-item-active'); // замена точек\n\n    prevSlide(dot, currentSlide, 'dot-active'); // переходим к следующему слайду и добавляем единицу\n\n    currentSlide++; // ограничиваем количество currentSlide, количеством слайдов\n\n    if (currentSlide >= slide.length) {\n      // тогда возвращаемся к первому слайду\n      currentSlide = 0;\n    } // вызов (стрелки)\n\n\n    nextSlide(slide, currentSlide, 'portfolio-item-active'); // замена точек после смены слайда\n\n    nextSlide(dot, currentSlide, 'dot-active');\n  }; // запускает слады. time = 3000 - параметр по умолчанию\n\n\n  var startSlide = function startSlide() {\n    var time = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 3000;\n    //функция  будет вызывать  через каждые time секунды\n    interval = setInterval(autoPlaySlide, time);\n  }; // останавливаем слайды при наведении на стрелки или точки\n\n\n  var stopSlide = function stopSlide() {\n    clearInterval(interval);\n  }; // логика переключения по точкам и по стрелкам\n  // вешаем обработчик события на slider ('.portfolio-content')\n\n\n  slider.addEventListener('click', function (event) {\n    // отключаем  стандартное действие для события click.\n    event.preventDefault(); // привязываем таргет\n\n    var target = event.target; // ограничение входа, если кликаем внутри слайдера и не поподаем на точки\n    // то делаем return, событие дальше неотрабатывает\n\n    if (!target.matches('.portfolio-btn, .dot')) {\n      return;\n    } // если кликаем на '.portfolio-btn, .dot', то срабатывает код ниже\n\n\n    prevSlide(slide, currentSlide, 'portfolio-item-active');\n    prevSlide(dot, currentSlide, 'dot-active'); // если цель кнопка arrow-right, то\n\n    if (target.matches('#arrow-right')) {\n      // то тогда прибавляем к currentSlide единицу\n      currentSlide++;\n    } else if (target.matches('#arrow-left')) {\n      //если цель кнопка arrow-left, то\n      // то тогда отнимаем от currentSlide единицу\n      currentSlide--;\n    } else if (target.matches('.dot')) {\n      // если кликаем по точкам\n      // то тогда необходимо к currentSlide применить ту точку на которую кликнули\n      // перебераем все точки и сравним их с таргетом\n      dot.forEach(function (elem, index) {\n        // если точка совподает с той на которую кликнули\n        if (elem === target) {\n          currentSlide = index; // то тогда индекс этого элемента присваеваем currentSlide\n        }\n      });\n    } // ограничиваем количество currentSlide, количеством слайдов\n\n\n    if (currentSlide >= slide.length) {\n      // тогда возвращаемся к первому слайду\n      currentSlide = 0;\n    } // если currentSlide будет меньше 0, то для currentSlide надо присвоить длину slide.length\n\n\n    if (currentSlide < 0) {\n      currentSlide = slide.length - 1;\n    }\n\n    nextSlide(slide, currentSlide, 'portfolio-item-active');\n    nextSlide(dot, currentSlide, 'dot-active');\n  }); // отключаем автослайд при наведении мышки\n\n  slider.addEventListener('mouseover', function (event) {\n    if (event.target.matches('.portfolio-btn') || event.target.matches('.dot')) {\n      stopSlide();\n    }\n  }); // если убрали мышку включается старт\n\n  slider.addEventListener('mouseout', function (event) {\n    if (event.target.matches('.portfolio-btn') || event.target.matches('.dot')) {\n      startSlide();\n    }\n  }); // вызов старт и передаём скорость листания\n\n  startSlide(1500);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (slider);\n\n//# sourceURL=webpack://training_project/./src/modules/slider.js?");
+
+/***/ })
+
+},
+/******/ function(__webpack_require__) { // webpackRuntimeModules
+/******/ "use strict";
+/******/ 
+/******/ /* webpack/runtime/getFullHash */
+/******/ (() => {
+/******/ 	__webpack_require__.h = () => ("26c237b9e1e37ff1926a")
+/******/ })();
+/******/ 
+/******/ }
+);

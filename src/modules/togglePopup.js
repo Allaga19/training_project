@@ -3,16 +3,34 @@ const togglePopup = () => {
 	// получаем элементы со страницы
 	const popup = document.querySelector('.popup'), // popUp
 		popupBtn = document.querySelectorAll('.popup-btn'), //кнопки popUpBtn
-		popupClose = document.querySelector('.popup-close '); // крестик popUpClose
+		popupContent = popup.querySelector('.popup-content'),
+		popupActiv = {
+			count: -445,
+			speed: 10,
+			startActiv: -445,
+			endActiv: 0
+		};
+	const animatedPopup = () => {
+		popupActiv.startActiv > popupActiv.endActiv ?
+			popupActiv.count -= popupActiv.speed :
+			popupActiv.count += popupActiv.speed;
+		popupContent.style.transform = `translateY(${popupActiv.count}px)`;
+
+		if (popupActiv.startActiv > popupActiv.endActiv ?
+			popupActiv.count > popupActiv.endActiv :
+			popupActiv.count < popupActiv.endActiv) {
+			requestAnimationFrame(animatedPopup);
+		}
+	};
 	popupBtn.forEach(elem => {
 		elem.addEventListener('click', () => {
 			popup.style.display = 'block';
+			if (screen.width > 768) {
+				popupActiv.count = popupActiv.startActiv;
+				requestAnimationFrame(animatedPopup);
+			}
 		});
 	});
-	popupClose.addEventListener('click', () => {
-		popup.style.display = 'none';
-	});
-	//
 	popup.addEventListener('click', event => {
 		//привязываем target
 		let target = event.target;
