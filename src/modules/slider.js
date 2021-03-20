@@ -7,7 +7,7 @@ const slider = () => {
 	let interval;
 
 	// добавляем клас для точек
-	slide.forEach(index => {
+	slide.forEach((item, index) => {
 		const li = document.createElement('li');
 		if (index === 0) {
 			li.classList.add('dot-active');
