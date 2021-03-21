@@ -31,15 +31,13 @@ const sendForm = formId => {
 	// Валидация данных при вводе email
 	form.addEventListener('input', event => {
 		if (event.target.matches('input[name="user_email"]')) {
-			// event.target.value = event.target.value.replace(/^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/gi, '');
-			event.target.value = event.target.value.replace(/[^A-Za-z.\d\-@_]/g, '');
+			event.target.value = event.target.value.replace(/[^a-z@-_\.\!\~\*\']/g, '');
 		}
 	});
 	// Валидация данных при вводе имени
 	form.addEventListener('input', event => {
 		if (event.target.matches('input[name="user_name"]')) {
-			event.target.value = event.target.value.replace(/[^а-яё\s-]/i, '');
-			// event.target.value = event.target.value.replace(/[^А-Яа-яЁё]|/g, '');
+			event.target.value = event.target.value.replace(/( |^)[А-Яа-яёa-z]/g, u => u.toUpperCase());
 		}
 	});
 	//Валидация данных при вводе сообщения

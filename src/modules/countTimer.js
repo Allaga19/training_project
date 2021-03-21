@@ -3,6 +3,7 @@ const countTimer = deadline => {
 	const timerHours = document.getElementById('timer-hours'),
 		timerMinutes = document.getElementById('timer-minutes'),
 		timerSeconds = document.getElementById('timer-seconds');
+	//
 	const getTimeRemaning = () => {
 		const dateStop = new Date(deadline).getTime(),  // получаем конечную дату
 			dateNow = new Date().getTime(),  // текущая дата
